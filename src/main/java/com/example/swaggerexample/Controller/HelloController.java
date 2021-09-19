@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -71,6 +72,10 @@ public class HelloController {
         ValueOperations<String, Object> vop = redisTemplate.opsForValue();
         Object value = vop.get(key);
         return new ResponseEntity<>(value, HttpStatus.OK);
+    }
+    @GetMapping("/total")
+    public ResponseEntity<?> getdata() throws IOException, ParseException {
+        return new ResponseEntity<>(userservice.total(),HttpStatus.OK);
     }
 
 }
