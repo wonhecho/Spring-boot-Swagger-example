@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name : org.mariadb.jdbc.Driver
+#    url: jdbc:mariadb://192.168.0.105:3306/testdb
+    url: jdbc:mariadb://database:3306/testdb
+    username : root
+    password : root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    generate-ddl : true
+    show-sql : true
+  redis:
+    host: 192.168.0.105
+    port: 6379
